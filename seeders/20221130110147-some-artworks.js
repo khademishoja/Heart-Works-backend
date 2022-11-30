@@ -17,7 +17,7 @@ module.exports = {
         },
         {
           title: "fire breathing",
-          imageUrl: "https://www.gstatic.com/webp/gallery/5.jpg@apple.com",
+          imageUrl: "https://www.gstatic.com/webp/gallery/5.jpg",
           hearts: 1,
           minimumBid: 0,
           createdAt: new Date(),
