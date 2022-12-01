@@ -3,6 +3,7 @@ const { sequelize } = require("../models");
 const Artwork = require("../models").artwork;
 const Bid = require("../models").bid;
 const authMiddleWare = require("../auth/middleware");
+const User = require("../models").user;
 const router = new Router();
 router.get("/", async (req, res, next) => {
   try {
@@ -68,14 +69,22 @@ router.post("/bids", async (req, res, next) => {
   }
 });
 router.post("/artworks", authMiddleWare, async (req, res, next) => {
-  try {
-    console.log(req.body);
-    const newArtwork = req.body;
-    const createArtWork = await Artwork.create(newArtwork);
-    res.send(createArtWork);
-  } catch (e) {
-    console.log(e);
-    next(e);
-  }
+  const userId = req.body.userId;
+  console.log(userId);
+  const user = await User.findByPk(userId);
+  if (user.isArtist) {
+    try {
+      console.log(req.body);
+      const newArtwork = req.body;
+      const createArtWork = await Artwork.create(newArtwork);
+      res.send(createArtWork);
+    } catch (e) {
+      console.log(e);
+      next(e);
+    }
+  } else
+    return res.status(404).send({
+      message: `You are not artist`,
+    });
 });
 module.exports = router;
