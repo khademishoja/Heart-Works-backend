@@ -87,4 +87,15 @@ router.post("/artworks", authMiddleWare, async (req, res, next) => {
       message: `You are not artist`,
     });
 });
+router.delete("/artworks/:id", authMiddleWare, async (req, res, next) => {
+  try {
+    const id = req.params.id;
+    const artWorkDelete = await Artwork.findByPk(id);
+    artWorkDelete.destroy();
+    res.send(id);
+  } catch (e) {
+    console.log(e.message);
+    next();
+  }
+});
 module.exports = router;
