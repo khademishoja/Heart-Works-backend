@@ -7,7 +7,7 @@ const User = require("../models").user;
 const router = new Router();
 router.get("/", async (req, res, next) => {
   try {
-    const artwork = await Artwork.findAll();
+    const artwork = await Artwork.findAll({ include: [Bid] });
     console.log(artwork);
     res.send(artwork);
   } catch (e) {
