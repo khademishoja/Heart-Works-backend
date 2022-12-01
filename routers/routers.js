@@ -67,7 +67,7 @@ router.post("/bids", async (req, res, next) => {
     next(e);
   }
 });
-router.post("/artworks", async (req, res, next) => {
+router.post("/artworks", authMiddleWare, async (req, res, next) => {
   try {
     console.log(req.body);
     const newArtwork = req.body;
