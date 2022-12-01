@@ -20,17 +20,10 @@ module.exports = {
       onUpdate: "CASCADE",
       onDelete: "SET NULL",
     });
-    await queryInterface.addColumn(
-      "users",
-      "isArtist",
-      { type: Sequelize.BOOLEAN },
-      {}
-    );
   },
 
   down: async (queryInterface, Sequelize) => {
     await queryInterface.removeColumn("artworks", "userId");
     await queryInterface.removeColumn("bids", "artworkId");
-    await queryInterface.removeColumn("users", "isArtist");
   },
 };

@@ -40,6 +40,27 @@ module.exports = {
           updatedAt: new Date(),
           artworkId: 3,
         },
+        {
+          email: "alex@apple.com",
+          amount: 60,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+          artworkId: 2,
+        },
+        {
+          email: "ali@apple.com",
+          amount: 84,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+          artworkId: 2,
+        },
+        {
+          email: "niloofar@apple.com",
+          amount: 70,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+          artworkId: 1,
+        },
       ],
       {}
     );
