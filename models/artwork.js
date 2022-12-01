@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       title: { type: DataTypes.STRING, allowNull: false },
       imageUrl: { type: DataTypes.STRING, allowNull: false },
-      hearts: { type: DataTypes.INTEGER, allowNull: false },
+      hearts: { type: DataTypes.INTEGER, allowNull: false, defaultValue: 0 },
       minimumBid: { type: DataTypes.INTEGER, allowNull: false },
     },
     {

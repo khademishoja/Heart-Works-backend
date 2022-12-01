@@ -67,5 +67,15 @@ router.post("/bids", async (req, res, next) => {
     next(e);
   }
 });
-
+router.post("/artworks", async (req, res, next) => {
+  try {
+    console.log(req.body);
+    const newArtwork = req.body;
+    const createArtWork = await Artwork.create(newArtwork);
+    res.send(createArtWork);
+  } catch (e) {
+    console.log(e);
+    next(e);
+  }
+});
 module.exports = router;
